@@ -313,6 +313,19 @@ fun autenticateClient(token:String){
         SecurityContextHolder.getContext().authentication = authentication
     }
 
-Por fim, implementamos ao lógica do método xxx.
+Por fim, implementamos ao lógica do método doFilterInternal.
 Exemplo:
+override fun doFilterInternal(
+request: HttpServletRequest,
+response: HttpServletResponse,
+filterChain: FilterChain
+) {
+var token = recoverToken(request)
+var tokenIsValid = tokenService.isValidToken(token)
+if(tokenIsValid){
+autenticateClient(token)
+}
+filterChain.doFilter(request,response)
+}
+
 
