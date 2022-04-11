@@ -19,8 +19,6 @@ class CategoryController {
 
     @PostMapping("/cadastrar")
     fun save(@RequestBody @Valid category: Category): ResponseEntity<Any> {
-        println(category.parentCategoryId)
-        println(category.toString())
         return CategoryRegister.save(service,category)
     }
 }

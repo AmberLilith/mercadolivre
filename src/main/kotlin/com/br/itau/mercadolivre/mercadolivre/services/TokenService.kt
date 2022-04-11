@@ -10,6 +10,7 @@ import java.util.*
 @Service
 class TokenService {
 
+    val secret = "secret"
     fun generateToken(authentication: Authentication):String{
         val loggedInUser = authentication.principal as User
         val today = Date()
@@ -19,6 +20,21 @@ class TokenService {
             .setSubject(loggedInUser.id.toString())
             .setIssuedAt(today)
             .setExpiration(Date(System.currentTimeMillis() + 60 * 60  *1000))
-            .signWith(SignatureAlgorithm.HS512,"secret").compact()
+            .signWith(SignatureAlgorithm.HS512,secret).compact()
+    }
+
+    fun isValidToken(token:String?):Boolean{
+        try {
+            Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token)
+            return true;
+        }catch (e:Exception){
+            return false
+        }
+
+    }
+
+    fun getUserId(token:String?):Long{
+        var claims = Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).body
+        return  claims.subject.toLong()
     }
 }
