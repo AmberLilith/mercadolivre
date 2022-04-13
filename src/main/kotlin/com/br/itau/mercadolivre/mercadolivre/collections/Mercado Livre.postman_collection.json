@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "1de67927-de45-4743-b1e9-07b53cfeb006",
+		"name": "Mercado Livre",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"amber@gmail.com\",\r\n    \"password\":\"78945645\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/usuario/cadastrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fazer Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"amber@gmail.com\",\r\n    \"pass\":\"78945645\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Categoria",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJBcGkgTWVyY2FkbyBMaXZyZSIsInN1YiI6IjEiLCJpYXQiOjE2NDk3MTg3MzcsImV4cCI6MTY0OTcyMjMzN30.AnVmNaT4WjdQHCqz9DKQ8R0GXKbTOGSOrlWV1mIcQZzfzlhpvlTjT-HE3wYfGQtWRlOJ2yvo2VLofjzrghtxSA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Informática\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/categoria/cadastrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categoria",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Produto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"celular\",\r\n    \"value\":1500,\r\n    \"availableQuantity\":10,    \r\n    \"characteristics\":[{\"name\":\"marca\",\"description\":\"Sansung\"},{\"name\":\"mermória ram\",\"description\":\"4gb\"},{\"name\":\"sistema\",\"description\":\"android\"}],\r\n    \"description\":\"Celular meia boca\",\r\n    \"categoryId\":1,\r\n    \"userId\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/produto/cadastrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produto",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
