@@ -33,7 +33,7 @@ class TokenService {
 
     }
 
-    fun getUserId(token:String?):Long{
+    fun getLoggedInUserId(token:String?):Long{
         var claims = Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).body
         return  claims.subject.toLong()
     }

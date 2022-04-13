@@ -1,4 +1,4 @@
-package com.br.itau.mercadolivre.mercadolivre.services
+package com.br.itau.mercadolivre.mercadolivre.services.categoryservices
 
 import com.br.itau.mercadolivre.mercadolivre.daos.Category
 import com.br.itau.mercadolivre.mercadolivre.repositories.CategoryRepository

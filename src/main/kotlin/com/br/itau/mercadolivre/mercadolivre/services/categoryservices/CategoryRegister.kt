@@ -1,13 +1,12 @@
-package com.br.itau.mercadolivre.mercadolivre
+package com.br.itau.mercadolivre.mercadolivre.services.categoryservices
 
 import com.br.itau.mercadolivre.mercadolivre.daos.Category
-import com.br.itau.mercadolivre.mercadolivre.services.CategoryService
 import org.springframework.http.ResponseEntity
 
 class CategoryRegister {
 
     companion object{
-        fun save(service:CategoryService,category: Category):ResponseEntity<Any>{
+        fun save(service: CategoryService, category: Category):ResponseEntity<Any>{
             if(category.parentCategoryId == -1L){
                 service.save(category)
             }else{

@@ -1,4 +1,4 @@
-package com.br.itau.mercadolivre.mercadolivre.services
+package com.br.itau.mercadolivre.mercadolivre.services.userservices
 
 import com.br.itau.mercadolivre.mercadolivre.daos.User
 import com.br.itau.mercadolivre.mercadolivre.repositories.UserRepository
@@ -13,6 +13,10 @@ class UserService {
 
     fun save(user: User):User{
         return repository.save(user)
+    }
+
+    fun findById(id:Long):Optional<User>{
+        return repository.findById(id)
     }
 
     fun findByLogin(login:String):Optional<User>{

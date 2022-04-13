@@ -1,13 +1,10 @@
 package com.br.itau.mercadolivre.mercadolivre.security
 
-import com.br.itau.mercadolivre.mercadolivre.daos.User
-import com.br.itau.mercadolivre.mercadolivre.repositories.UserRepository
-import com.br.itau.mercadolivre.mercadolivre.services.UserService
+import com.br.itau.mercadolivre.mercadolivre.services.userservices.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class AuthenticationService:UserDetailsService {

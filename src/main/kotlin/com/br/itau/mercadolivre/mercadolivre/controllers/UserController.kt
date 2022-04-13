@@ -1,9 +1,8 @@
 package com.br.itau.mercadolivre.mercadolivre.controllers
 
 import com.br.itau.mercadolivre.mercadolivre.daos.User
-import com.br.itau.mercadolivre.mercadolivre.services.Login
 import com.br.itau.mercadolivre.mercadolivre.dtos.UserDto
-import com.br.itau.mercadolivre.mercadolivre.services.UserService
+import com.br.itau.mercadolivre.mercadolivre.services.userservices.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -27,8 +26,4 @@ class UserController {
         return ResponseEntity(user.toString(), HttpStatus.OK)
     }
 
-    @PostMapping("/logar")
-    fun login(@RequestBody userDto: UserDto, response:HttpServletResponse):ResponseEntity<Any>{
-        return Login.loginIn(userDto,service,response)
-    }
 }

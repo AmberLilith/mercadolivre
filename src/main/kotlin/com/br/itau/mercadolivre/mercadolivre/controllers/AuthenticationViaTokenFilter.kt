@@ -25,7 +25,7 @@ class AuthenticationViaTokenFilter(var tokenService:TokenService, var userReposi
     }
 
     fun autenticateClient(token:String?){
-        var userId = tokenService.getUserId(token)
+        var userId = tokenService.getLoggedInUserId(token)
         val user = userRepository.findById(userId).get()
         val authentication = UsernamePasswordAuthenticationToken(user,null,user.authorities)
         SecurityContextHolder.getContext().authentication = authentication
