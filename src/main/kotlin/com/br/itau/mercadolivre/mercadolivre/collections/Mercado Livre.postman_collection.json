@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"amber@gmail.com\",\r\n    \"password\":\"78945645\"\r\n}",
+					"raw": "{\r\n    \"login\":\"amber@gmail.com\",\r\n    \"pass\":\"1234564\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"amber@gmail.com\",\r\n    \"pass\":\"78945645\"\r\n}",
+					"raw": "{\r\n    \"login\":\"amber@gmail.com\",\r\n    \"pass\":\"1234564\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,7 +68,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJBcGkgTWVyY2FkbyBMaXZyZSIsInN1YiI6IjEiLCJpYXQiOjE2NDk3MTg3MzcsImV4cCI6MTY0OTcyMjMzN30.AnVmNaT4WjdQHCqz9DKQ8R0GXKbTOGSOrlWV1mIcQZzfzlhpvlTjT-HE3wYfGQtWRlOJ2yvo2VLofjzrghtxSA",
+							"value": "{{token}}",
 							"type": "string"
 						}
 					]
@@ -77,7 +77,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Informática\"\r\n}",
+					"raw": "{\r\n    \"name\":\"Informática\",\r\n    \"parentCategoryId\":0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,7 +115,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"celular\",\r\n    \"value\":1500,\r\n    \"availableQuantity\":10,    \r\n    \"characteristics\":[{\"name\":\"marca\",\"description\":\"Sansung\"},{\"name\":\"mermória ram\",\"description\":\"4gb\"},{\"name\":\"sistema\",\"description\":\"android\"}],\r\n    \"description\":\"Celular meia boca\",\r\n    \"categoryId\":1,\r\n    \"userId\":1\r\n}",
+					"raw": "{\r\n    \"name\":\"celular\",\r\n    \"value\":1110,\r\n    \"availableQuantity\":10,    \r\n    \"characteristics\":[{\"name\":\"marca\",\"description\":\"Sansung\"},{\"name\":\"mermória ram\",\"description\":\"4gb\"},{\"name\":\"sistema\",\"description\":\"android\"}],\r\n    \"description\":\"Celular meia boca\",\r\n    \"categoryId\":2\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
