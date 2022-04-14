@@ -2,12 +2,13 @@ package com.br.itau.mercadolivre.mercadolivre.services.categoryservices
 
 import com.br.itau.mercadolivre.mercadolivre.daos.Category
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.MethodArgumentNotValidException
 
 class CategoryRegister {
 
     companion object{
         fun save(service: CategoryService, category: Category):ResponseEntity<Any>{
-            if(category.parentCategoryId == -1L){
+            if(category.parentCategoryId == 0L){
                 service.save(category)
             }else{
                 val p = service.findById(category.parentCategoryId)

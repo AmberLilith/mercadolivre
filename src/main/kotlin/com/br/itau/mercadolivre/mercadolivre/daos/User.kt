@@ -1,10 +1,12 @@
 package com.br.itau.mercadolivre.mercadolivre.daos
 
+import com.br.itau.mercadolivre.mercadolivre.Crypt
 import com.br.itau.mercadolivre.mercadolivre.FormatedDate
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver
 import java.time.LocalDate
 import javax.persistence.*
 import javax.validation.constraints.Email
@@ -16,8 +18,8 @@ class User:UserDetails{
         @field:Id
         @field:GeneratedValue(strategy = GenerationType.IDENTITY)
         var id: Long = 0
-        @field:NotBlank(message = "Email não pode estar em branco!")
-        @field:Email(message = "Email informado é inválido!")
+        @field:NotBlank(message = "Login não pode estar em branco!")
+        @field:Email(message = "Login deve ser e-mail válído (Exemplo: user@servidor.com!")
         @field:Column(unique = true)
         var login: String = ""
         @field:NotBlank
@@ -27,9 +29,9 @@ class User:UserDetails{
         // TODO: 07/04/2022 Ver se realmente precisa de lista de perfis 
 
         constructor(email:String, password:String){
-                val bCrypt = BCryptPasswordEncoder()
                 this.login = email
-                this.pass = bCrypt.encode(password)
+                this.pass = Crypt.encode(password)
+                print(this.pass)
         }
 
         fun comparePassword(passwordFromRequest: String):Boolean{

@@ -22,7 +22,6 @@ class UserController {
     @PostMapping("/cadastrar")
     fun save(@RequestBody @Valid userDto: UserDto):ResponseEntity<Any>{
         var user:User = service.save(userDto.converter())
-        // TODO: 30/03/2022 retornar 400 caso validação falhe
         return ResponseEntity(user.toString(), HttpStatus.OK)
     }
 

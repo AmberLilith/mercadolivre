@@ -13,7 +13,7 @@ class Category {
     @field:NotBlank(message = "Nome da categoria não foi informado!")
     @field:Column(unique = true)
     var name:String
-    var parentCategoryId: Long = -1
+    var parentCategoryId: Long = 0
 
     constructor(name: String, parentCategoryId: Long) {
         this.name = name
