@@ -26,13 +26,14 @@ class AuthenticationController {
 
     @PostMapping
     fun authenticate(@RequestBody @Valid loginDto: LoginDto):ResponseEntity<Any>{
-        var LoginDatas: UsernamePasswordAuthenticationToken = loginDto.converter()
-        try {
-            var authentication: Authentication = authManager.authenticate(LoginDatas)
+        val loginDatas: UsernamePasswordAuthenticationToken = loginDto.converter()
+        return try {
+            val authentication: Authentication = authManager.authenticate(loginDatas)
             val token = tokenService.generateToken(authentication)
-            return ResponseEntity(TokenDto(token,"Bearer"), HttpStatus.OK)
+            ResponseEntity(TokenDto(token,"Bearer"), HttpStatus.OK)
         }catch (e:Exception){
-            return ResponseEntity(HttpStatus.BAD_REQUEST)
+            print(e.message)
+            ResponseEntity(HttpStatus.BAD_REQUEST)
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.br.itau.mercadolivre.mercadolivre.controllers
 
 import com.br.itau.mercadolivre.mercadolivre.daos.User
+import com.br.itau.mercadolivre.mercadolivre.dtos.UserDetails
 import com.br.itau.mercadolivre.mercadolivre.dtos.UserDto
 import com.br.itau.mercadolivre.mercadolivre.services.userservices.UserService
 import org.springframework.beans.factory.annotation.Autowired
@@ -22,7 +23,8 @@ class UserController {
     @PostMapping("/cadastrar")
     fun save(@RequestBody @Valid userDto: UserDto):ResponseEntity<Any>{
         var user:User = service.save(userDto.converter())
-        return ResponseEntity(user.toString(), HttpStatus.OK)
+        var userDetails = UserDetails(user.id,user.login)
+        return ResponseEntity(userDetails, HttpStatus.OK)
     }
 
 }

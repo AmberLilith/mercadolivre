@@ -39,6 +39,9 @@ class SecurityConfigurations:WebSecurityConfigurerAdapter(){
     }
 
     override fun configure(web: WebSecurity?) {
+        web!!
+            .ignoring()
+            .antMatchers("/h2-console/**");
     }
 
     override fun configure(http: HttpSecurity) {

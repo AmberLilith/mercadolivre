@@ -23,7 +23,7 @@ class User:UserDetails{
         @field:Column(unique = true)
         var login: String = ""
         @field:NotBlank
-        @field:Size(min = 6)
+        @field:Size(min = 6, message = "A senha deve conter pelo menos 6 dígitos!")
         var pass: String = ""
         var registerDate = FormatedDate.formatter(LocalDate.now())
         // TODO: 07/04/2022 Ver se realmente precisa de lista de perfis 
@@ -31,7 +31,6 @@ class User:UserDetails{
         constructor(email:String, password:String){
                 this.login = email
                 this.pass = Crypt.encode(password)
-                print(this.pass)
         }
 
         fun comparePassword(passwordFromRequest: String):Boolean{
@@ -66,9 +65,8 @@ class User:UserDetails{
         override fun isEnabled(): Boolean {
                 return true
         }
-
         override fun toString(): String {
-                return "{\n'id':${this.id},\n'login':'${this.login}'\n}"
+                return "{\n\"id\":${this.id},\n\"login\":\"${this.login}\"\n}"
         }
 
 }

@@ -15,4 +15,6 @@ class LoginDto {
     fun converter():UsernamePasswordAuthenticationToken{
         return UsernamePasswordAuthenticationToken(login, pass)
     }
+
+
 }
